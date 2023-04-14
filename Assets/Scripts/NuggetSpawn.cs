@@ -15,6 +15,9 @@ public class NuggetSpawn : MonoBehaviour
     public float lower_bound;
     public float out_of_bounds;
     public float start_frequency;
+    public int set_prob; 
+
+    public List<Sprite> sprites;
 
     void Start()
     {
@@ -30,15 +33,22 @@ public class NuggetSpawn : MonoBehaviour
         int interval = (int) (UnityEngine.Time.time * 10);
         if (!spawned && interval % start_frequency == 0) {
             Debug.Log("Spawn");
-            int prob = (int)UnityEngine.Random.Range(0, 100);
+            int gen_prob = (int)UnityEngine.Random.Range(0, 100);
             Vector3 spawn = new Vector3(0.0f, (int)UnityEngine.Random.Range(upper_bound, lower_bound), 0.0f);
             GameObject tmp_nugget = Instantiate(nuggie, spawn, scary);
-            if (prob < 20) {
-                tmp_nugget.tag = "special";
+            if (gen_prob < set_prob) {
+                tmp_nugget.tag = "bad";
+                tmp_nugget.GetComponent<SpriteRenderer>().sprite = (gen_prob % 2 == 0) ? sprites[4] : sprites[5];
                 tmp_nugget.transform.localScale = new Vector3(0.75f, 0.75f, 1.0f);
             }
+            if (gen_prob > (100 - set_prob)) {
+                tmp_nugget.tag = "raw";
+                tmp_nugget.GetComponent<SpriteRenderer>().sprite = (gen_prob % 2 == 0) ? sprites[0] : sprites[1];
+                tmp_nugget.transform.localScale = new Vector3(1.25f, 1.25f, 1.0f);
+            }
             else {
-                tmp_nugget.tag = "normal";
+                tmp_nugget.tag = "good";
+                tmp_nugget.GetComponent<SpriteRenderer>().sprite = (gen_prob % 2 == 0) ? sprites[2] : sprites[3];
             }
             nuggies.Add(tmp_nugget);
             spawned = true;

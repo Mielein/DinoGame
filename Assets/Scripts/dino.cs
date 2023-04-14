@@ -20,10 +20,13 @@ public class dino : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other) {
         Debug.Log("idk");
-        if (other.gameObject.tag == "normal") {
+        if (other.gameObject.tag == "good") {
+            count += 3;
+        }
+        else if (other.gameObject.tag == "raw") {
             count += 1;
         }
-        else if (other.gameObject.tag == "special") {
+        else if (other.gameObject.tag == "bad") {
             count += 5;
         }
         points.text = "" + count;
