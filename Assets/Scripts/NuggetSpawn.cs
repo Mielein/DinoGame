@@ -10,14 +10,18 @@ public class NuggetSpawn : MonoBehaviour
     private Quaternion scary;
     private bool spawned;
     public GameObject nuggie;
+    public GameObject dino;
     public float upper_bound;
     public float lower_bound;
+    public float out_of_bounds;
     public float start_frequency;
-    public TMP_Text points;
+
     void Start()
     {
         nuggies = new List<GameObject>();
-        spawned = false;   
+        spawned = false;
+        Rigidbody2D body = dino.GetComponent<Rigidbody2D>();
+        Collider2D collider = dino.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -26,19 +30,30 @@ public class NuggetSpawn : MonoBehaviour
         int interval = (int) (UnityEngine.Time.time * 10);
         if (!spawned && interval % start_frequency == 0) {
             Debug.Log("Spawn");
+            int prob = (int)UnityEngine.Random.Range(0, 100);
             Vector3 spawn = new Vector3(0.0f, (int)UnityEngine.Random.Range(upper_bound, lower_bound), 0.0f);
-            nuggies.Add((GameObject)Instantiate(nuggie, spawn, scary));
+            GameObject tmp_nugget = Instantiate(nuggie, spawn, scary);
+            if (prob < 20) {
+                tmp_nugget.tag = "special";
+                tmp_nugget.transform.localScale = new Vector3(0.75f, 0.75f, 1.0f);
+            }
+            else {
+                tmp_nugget.tag = "normal";
+            }
+            nuggies.Add(tmp_nugget);
             spawned = true;
         }
         else if (spawned && interval % start_frequency != 0) {
             spawned = false;
         }
         for (int i = 0; i < nuggies.Count; ++i) {
-            nuggies[i].transform.position += new Vector3(-0.05f, 0.0f, 0.0f);
+            if (nuggies[i].transform.position.x > out_of_bounds) {
+                nuggies[i].transform.position += new Vector3 (-0.05f, 0.0f, 0.0f);
+            }
+            else {
+                Destroy(nuggies[i]);
+                nuggies.Remove(nuggies[i]);
+            }
         } 
-    }
-
-    void onTriggerEnter() {
-
     }
 }
