@@ -705,6 +705,14 @@ PrefabInstance:
       propertyPath: roller
       value: 
       objectReference: {fileID: 1763023651}
+    - target: {fileID: 5265958783897525634, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
+      propertyPath: idle_high.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265958783897525634, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
+      propertyPath: idle_high.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: c7ed47a51c84bd28b8edaaa9f35ef791, type: 3}
     - target: {fileID: 5839149921377755522, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
       propertyPath: m_RootOrder
       value: 5
