@@ -30,7 +30,7 @@ public class NuggetSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int interval = (int) (UnityEngine.Time.time * 10);
+        int interval = (int) (UnityEngine.Time.time * start_frequency);
         if (!spawned && interval % start_frequency == 0) {
             Debug.Log("Spawn");
             int gen_prob = (int)UnityEngine.Random.Range(0, 100);
@@ -58,7 +58,7 @@ public class NuggetSpawn : MonoBehaviour
         }
         for (int i = 0; i < nuggies.Count; ++i) {
             if (nuggies[i].transform.position.x > out_of_bounds) {
-                nuggies[i].transform.position += new Vector3 (-0.05f, 0.0f, 0.0f);
+                nuggies[i].transform.position += new Vector3 (-5f * UnityEngine.Time.deltaTime, 0.0f, 0.0f);
             }
             else {
                 Destroy(nuggies[i]);
