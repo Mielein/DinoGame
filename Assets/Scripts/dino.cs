@@ -1,35 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class dino : MonoBehaviour
 {
     // Start is called before the first frame update
-    public TMP_Text points;
-    private int count;
+    public List<Sprite> extend;
+    public List<Sprite> breathe_low;
+    public List<Sprite> breathe_high;
+
+    private int stage;
+    private bool end_stage; 
+    private Rigidbody2D rbod;
     void Start()
     {
-        count = 0;
+        stage = 0;
+        rbod = GetComponentInChildren<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("idk");
-        if (other.gameObject.tag == "good") {
-            count += 3;
+        if(Input.GetKey(KeyCode.S)) {
+            if (stage < 7) {
+                stage ++;
+                GetComponent<SpriteRenderer>().sprite = extend[stage];
+                rbod.transform.position -= new Vector3(0.2f, 0.9f, 0.0f);
+            }
         }
-        else if (other.gameObject.tag == "raw") {
-            count += 1;
+        if(Input.GetKey(KeyCode.W)) {
+            if (stage > 0) {
+                stage --;
+                GetComponent<SpriteRenderer>().sprite = extend[stage];
+                rbod.transform.position += new Vector3(0.2f, 0.9f, 0.0f);
+            }
         }
-        else if (other.gameObject.tag == "bad") {
-            count += 5;
-        }
-        points.text = "" + count;
-        other.GetComponent<SpriteRenderer>().enabled = false;
     }
 }

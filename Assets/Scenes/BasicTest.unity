@@ -635,6 +635,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4409601524209654200, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
+      propertyPath: points
+      value: 
+      objectReference: {fileID: 579856250}
     - target: {fileID: 5265958783897525634, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
       propertyPath: points
       value: 
