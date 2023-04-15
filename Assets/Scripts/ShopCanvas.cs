@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ShopCanvas : MonoBehaviour {
 
@@ -12,6 +14,7 @@ public class ShopCanvas : MonoBehaviour {
     public Sprite burntnuggie_l;
     public Sprite burntnuggie_r;
     private int i = 0;
+    public TMP_Text nugget_text;
 
     void Start(){
 
@@ -19,6 +22,7 @@ public class ShopCanvas : MonoBehaviour {
 
     void Update() {
         SetDiff(i);
+        nugget_text.SetText(/* nugget_text +  */" "+ GameManager.Instance.Return_nuggets());
         
     }
 
@@ -52,7 +56,19 @@ public class ShopCanvas : MonoBehaviour {
         vehicle_arr[i].SetActive(true);
     }
 
-    public void changeLeftButton(){
-        left_button.GetComponent<Image>().sprite = burntnuggie_l;
+    public void Rollerskates(){
+        SceneManager.LoadScene("BasicTest");
+    }
+    public void Skateboard(){
+        
+    }
+    public void Scooter(){
+        
+    }
+    public void Car(){
+        
+    }
+    public void Plane(){
+        
     }
 }
