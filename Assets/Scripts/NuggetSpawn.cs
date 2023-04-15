@@ -6,6 +6,10 @@ using TMPro;
 public class NuggetSpawn : MonoBehaviour
 {
     private List<GameObject> nuggies;
+    public List<Sprite> obs1;
+    public List<Sprite> obs2_1;
+    public List<Sprite> obs2_2;
+    public List<Sprite> obs3;
     private Quaternion scary;
     private bool spawned;
     public GameObject nuggie;
