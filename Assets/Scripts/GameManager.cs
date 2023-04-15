@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 
     private static GameManager _instance;
     private static int _nuggets = 0;
+    private bool paused = false;
 
     public GameObject pause_menu;
 
@@ -25,7 +26,8 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update(){
-        if(SceneManagement.Scene.name != "Game"){
+        Debug.Log(paused);
+        if(SceneManager.GetActiveScene().name != "Game"){
             Pause();
         }
     }
@@ -35,6 +37,22 @@ public class GameManager : MonoBehaviour {
             pause_menu.SetActive(true);
             Time.timeScale = 0.0f;
         }
+        
+    }
+
+    public void EndPause(){
+        pause_menu.SetActive(false);
+        Time.timeScale = 1.0f;
+        
+    }
+
+    public void BackToMenu(){
+        SceneManager.LoadScene("Game");
+        Time.timeScale = 1.0f;
+    }
+
+    public void Quit(){
+         Application.Quit();
     }
 
     public void Nuggets(int nugget_points){
