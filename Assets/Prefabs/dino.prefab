@@ -117,7 +117,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1c5653ad2c8ed57719519aa7f7ed7504, type: 3}
   - {fileID: 21300000, guid: 9d0ad3134c54eb9afb8c98b97d953d56, type: 3}
   - {fileID: 21300000, guid: 1c5653ad2c8ed57719519aa7f7ed7504, type: 3}
-  rollin: []
+  rolling:
+  - {fileID: 21300000, guid: cd60439bb54eff2eb8604e7310cf608c, type: 3}
+  - {fileID: 21300000, guid: b310d11df7afddcc1bf681bd7e661042, type: 3}
+  - {fileID: 21300000, guid: 58fac2d1d50a10e3b832a762d7f43690, type: 3}
+  - {fileID: 21300000, guid: b310d11df7afddcc1bf681bd7e661042, type: 3}
+  feet: 0
 --- !u!1 &6158036801108260330
 GameObject:
   m_ObjectHideFlags: 0

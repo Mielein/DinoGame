@@ -8,15 +8,19 @@ public class dino : MonoBehaviour
     public List<Sprite> extend;
     public List<Sprite> idle_low;
     public List<Sprite> idle_high;
-    public List<Sprite> rollin;
+    public List<Sprite> rolling;
 
     private int stage;
     private int status; 
     private Rigidbody2D rbod;
     private SpriteRenderer srend;
+    private SpriteRenderer sfeet;
     private float time;
     private int frames;
+    public bool feet;
+    public GameObject roller;
     private List<Vector3> hardcode_hitbox = new List<Vector3>();
+
     void Ohno() {
         hardcode_hitbox.Add(new Vector3(0.15f, 1.0f, 0.0f));
         hardcode_hitbox.Add(new Vector3(0.1f, 1.2f, 0.0f));
@@ -34,6 +38,9 @@ public class dino : MonoBehaviour
         stage = 0;
         rbod = GetComponentInChildren<Rigidbody2D>();
         srend = GetComponent<SpriteRenderer>();
+        sfeet = roller.GetComponent<SpriteRenderer>();
+        roller.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1.0f);
+        roller.transform.localScale = gameObject.transform.localScale;
     }
 
     // Update is called once per frame
@@ -64,6 +71,12 @@ public class dino : MonoBehaviour
             case -2:
                 srend.sprite = idle_high[(int) (frames * 0.5f) % idle_high.Count];
                 break;
+        }
+        if (feet) {
+            sfeet.sprite = rolling[(int) (frames * 0.5f) % rolling.Count];
+        }
+        else {
+            sfeet.sprite = null;
         }
         frames = (frames + 1) % 100;
     }
