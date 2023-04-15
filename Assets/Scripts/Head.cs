@@ -20,7 +20,7 @@ public class Head : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GameManager.Instance.Nuggets(count);
     }
     void OnTriggerEnter2D(Collider2D other) {
         switch (player.transport) {
