@@ -64,10 +64,10 @@ public class Dino : MonoBehaviour
             status = -1;
         }
         else if(Input.GetKey(KeyCode.A)) {
-            transport = (transport - 1) % 5;
+            transport = (transport - 1) % 6;
         }
         else if(Input.GetKey(KeyCode.D)) {
-            transport = (transport + 1) % 5;
+            transport = (transport + 1) % 6;
         }
 
         time += UnityEngine.Time.deltaTime;
@@ -109,6 +109,10 @@ public class Dino : MonoBehaviour
             case 4:
                 sfeet.sprite = car_2[0];
                 sfeetbg.sprite = car[(int) (frames * 0.5f) % car.Count];
+                break;
+            case 5:
+                sfeet.sprite = plane[(int) (frames * 0.5f) % plane.Count];
+                sfeetbg.sprite = null;
                 break;
         }
         frames = (frames + 1) % 100;

@@ -140,7 +140,12 @@ MonoBehaviour:
   car_2:
   - {fileID: 21300000, guid: 136989a0837185d648ef4857069fbea3, type: 3}
   plane:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: acd3f44e550dfc05cb7615071f089955, type: 3}
+  - {fileID: 21300000, guid: 5e645a8ccda66c6efbd915d1c6806548, type: 3}
+  - {fileID: 21300000, guid: d64e6266ff2f363b9893a4224804b661, type: 3}
+  - {fileID: 21300000, guid: 8abcf374abd376beea5d0989899c3b4d, type: 3}
+  - {fileID: 21300000, guid: d64e6266ff2f363b9893a4224804b661, type: 3}
+  - {fileID: 21300000, guid: 5e645a8ccda66c6efbd915d1c6806548, type: 3}
   transport: 0
   roller: {fileID: 0}
   rollerbg: {fileID: 0}
