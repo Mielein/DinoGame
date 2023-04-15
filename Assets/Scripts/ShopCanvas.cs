@@ -18,15 +18,23 @@ public class ShopCanvas : MonoBehaviour {
     }
 
     void Update() {
-        for(int j = 0; j<= i; j++){
-            diff_arr[j].SetActive(true);
-        }
+        SetDiff(i);
         
     }
 
-    public void Right(){
+    public void SetDiff(int diff){
+
+        foreach (var difficulty in diff_arr){
+            if(System.Array.IndexOf(diff_arr, difficulty)<= diff){
+                difficulty.SetActive(true);
+            }
+            else difficulty.SetActive(false);
+            
+        }
+    }
         
-        Debug.Log(i);
+
+    public void Right(){
         vehicle_arr[i].SetActive(false);
         i++;
         if(i >= vehicle_arr.Length){
@@ -36,7 +44,6 @@ public class ShopCanvas : MonoBehaviour {
     }    
 
     public void Left(){
-        Debug.Log(i);
         vehicle_arr[i].SetActive(false);
         i--;
         if(i < 0){
