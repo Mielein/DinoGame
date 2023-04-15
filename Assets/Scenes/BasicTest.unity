@@ -702,25 +702,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 579856250}
     - target: {fileID: 5265958783897525634, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
-      propertyPath: feet
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5265958783897525634, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
-      propertyPath: points
-      value: 
-      objectReference: {fileID: 579856250}
-    - target: {fileID: 5265958783897525634, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
       propertyPath: roller
       value: 
       objectReference: {fileID: 1763023651}
-    - target: {fileID: 5839149921377755520, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
-      propertyPath: m_Size.y
-      value: 0.49618843
-      objectReference: {fileID: 0}
-    - target: {fileID: 5839149921377755520, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.55849814
-      objectReference: {fileID: 0}
     - target: {fileID: 5839149921377755522, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -767,7 +751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5839149921377755583, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}
       propertyPath: m_Name
-      value: dino
+      value: Dinosaur
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24caae684d01b1ec7b727c05a526ace4, type: 3}

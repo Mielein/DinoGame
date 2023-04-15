@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5839149921377755521}
   - component: {fileID: 5265958783897525634}
   m_Layer: 0
-  m_Name: dino
+  m_Name: Dinosaur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b310d11df7afddcc1bf681bd7e661042, type: 3}
   - {fileID: 21300000, guid: 58fac2d1d50a10e3b832a762d7f43690, type: 3}
   - {fileID: 21300000, guid: b310d11df7afddcc1bf681bd7e661042, type: 3}
-  feet: 0
+  transport: 0
+  roller: {fileID: 0}
 --- !u!1 &6158036801108260330
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ GameObject:
   - component: {fileID: 5330854057005820634}
   - component: {fileID: 4409601524209654200}
   m_Layer: 0
-  m_Name: head
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

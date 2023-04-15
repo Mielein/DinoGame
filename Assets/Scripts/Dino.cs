@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dino : MonoBehaviour
+public class Dino : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<Sprite> extend;
@@ -17,7 +17,8 @@ public class dino : MonoBehaviour
     private SpriteRenderer sfeet;
     private float time;
     private int frames;
-    public bool feet;
+    public int transport;
+    
     public GameObject roller;
     private List<Vector3> hardcode_hitbox = new List<Vector3>();
 
@@ -58,7 +59,7 @@ public class dino : MonoBehaviour
             return;
         }
         time = 0.0f;
-        switch(status) {
+        switch (status) {
             case 1:
                 Shrink();
                 break;
@@ -72,11 +73,13 @@ public class dino : MonoBehaviour
                 srend.sprite = idle_high[(int) (frames * 0.5f) % idle_high.Count];
                 break;
         }
-        if (feet) {
-            sfeet.sprite = rolling[(int) (frames * 0.5f) % rolling.Count];
-        }
-        else {
-            sfeet.sprite = null;
+        switch (transport) {
+            case 1:
+                sfeet.sprite = rolling[(int) (frames * 0.5f) % rolling.Count];
+                break;
+            case 0:
+                sfeet.sprite = null;
+                break;
         }
         frames = (frames + 1) % 100;
     }

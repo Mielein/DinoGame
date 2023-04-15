@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class head : MonoBehaviour
+public class Head : MonoBehaviour
 {
     public TMP_Text points;
-    private int count;
+    public int count;
+    private int multiplier;
+    GameObject go;
+    Dino player = null;    
     // Start is called before the first frame update
     void Start()
     {
-        
+        go = GameObject.Find ("Dinosaur");
+        player = go.GetComponent <Dino> ();
     }
 
     // Update is called once per frame
@@ -19,17 +23,25 @@ public class head : MonoBehaviour
         
     }
     void OnTriggerEnter2D(Collider2D other) {
+        switch (player.transport) {
+            case 0:
+                multiplier = 1;
+                break;
+            case 1:
+                multiplier = 2;
+                break;
+        }
         Debug.Log("idk");
         if (other.gameObject.tag == "good") {
-            count += 3;
+            count += 3 * multiplier;
         }
         else if (other.gameObject.tag == "raw") {
-            count += 1;
+            count += 1 * multiplier;
         }
         else if (other.gameObject.tag == "bad") {
-            count += 5;
+            count += 5 * multiplier;
         }
-        points.text = "" + count;
+        points.text = "Points: " + count;
         other.GetComponent<SpriteRenderer>().enabled = false;
     }
 }

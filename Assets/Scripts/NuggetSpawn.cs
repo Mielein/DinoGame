@@ -11,11 +11,14 @@ public class NuggetSpawn : MonoBehaviour
     private bool spawned;
     public GameObject nuggie;
     public GameObject dino;
+    Dino player = null;
     public float upper_bound;
     public float lower_bound;
     public float out_of_bounds;
     public float start_frequency;
-    public int set_prob; 
+    public int set_prob;
+    private float freq;
+    private float speed;
 
     public List<Sprite> sprites;
 
@@ -25,11 +28,22 @@ public class NuggetSpawn : MonoBehaviour
         spawned = false;
         Rigidbody2D body = dino.GetComponent<Rigidbody2D>();
         Collider2D collider = dino.GetComponent<Collider2D>();
+        player = dino.GetComponent <Dino> ();
     }
 
     // Update is called once per frame
     void Update()
     {
+        switch (player.transport) {
+            case 0:
+                freq = start_frequency;
+                speed = 5.0f;
+                break;
+            case 1:
+                freq = start_frequency * 1.5f;
+                speed = 5.0f * 1.25f;
+                break;
+        }
         int interval = (int) (UnityEngine.Time.time * start_frequency);
         if (!spawned && interval % start_frequency == 0) {
             Debug.Log("Spawn");
@@ -58,7 +72,7 @@ public class NuggetSpawn : MonoBehaviour
         }
         for (int i = 0; i < nuggies.Count; ++i) {
             if (nuggies[i].transform.position.x > out_of_bounds) {
-                nuggies[i].transform.position += new Vector3 (-5f * UnityEngine.Time.deltaTime, 0.0f, 0.0f);
+                nuggies[i].transform.position += new Vector3 (-speed * UnityEngine.Time.deltaTime, 0.0f, 0.0f);
             }
             else {
                 Destroy(nuggies[i]);
