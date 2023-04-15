@@ -37,6 +37,7 @@ public class Dino : MonoBehaviour
         frames = 0;
         time = 0.0f;
         stage = 0;
+
         rbod = GetComponentInChildren<Rigidbody2D>();
         srend = GetComponent<SpriteRenderer>();
         sfeet = roller.GetComponent<SpriteRenderer>();
@@ -55,7 +56,7 @@ public class Dino : MonoBehaviour
         }
 
         time += UnityEngine.Time.deltaTime;
-        if (time < 0.1f) {
+        if (time < 0.05f) {
             return;
         }
         time = 0.0f;

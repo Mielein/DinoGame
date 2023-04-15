@@ -7,6 +7,9 @@ TagManager:
   - good
   - raw
   - bad
+  - obs-1
+  - obs-2
+  - obs-3
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,6 @@ using TMPro;
 
 public class NuggetSpawn : MonoBehaviour
 {
-    // Start is called before the first frame update
     private List<GameObject> nuggies;
     private Quaternion scary;
     private bool spawned;
@@ -31,7 +30,6 @@ public class NuggetSpawn : MonoBehaviour
         player = dino.GetComponent <Dino> ();
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (player.transport) {
