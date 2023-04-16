@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2405dd62ac7683f39bcf0e67e4787845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallax_effect: 0.3
+  parallax_effect: 1
   speed: -2
 --- !u!61 &8223261109724426876
 BoxCollider2D:
