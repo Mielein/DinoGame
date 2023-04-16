@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     private static int _nuggets = 0;
     private bool paused = false;
     private float _movement = 1.0f;
+    private float currmov = 0.0f;
 
     public GameObject pause_menu;
 
@@ -53,10 +54,14 @@ public class GameManager : MonoBehaviour {
     }
 
     public float SetMovement(float movement){
-        _movement += movement ;
+        _movement += movement;
+        currmov = movement;
         return _movement;
     }
 
+    public float GetMovement(){
+        return currmov;
+    }
     public void Quit(){
          Application.Quit();
     }
