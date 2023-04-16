@@ -503,6 +503,7 @@ MonoBehaviour:
   lower_bound: -3
   out_of_bounds: -12
   start_frequency: 5
+  start_frequency2: 2
   set_prob: 25
   sprites:
   - {fileID: 21300000, guid: 108e6f8ff35d5cdb49398f6eb3e96f6b, type: 3}

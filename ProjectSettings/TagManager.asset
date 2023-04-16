@@ -14,10 +14,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
-  - 
+  - Items
   - 
   - 
   - 
@@ -46,4 +46,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Things
+    uniqueID: 1878648265
+    locked: 0
+  - name: Dino
+    uniqueID: 4185026969
+    locked: 0
+  - name: BG
+    uniqueID: 328632699
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 2944374991
     locked: 0

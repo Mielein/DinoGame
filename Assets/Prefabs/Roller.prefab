@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5251904606872511268}
   - component: {fileID: 192749539551188303}
   m_Layer: 0
-  m_Name: roller
+  m_Name: Roller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
