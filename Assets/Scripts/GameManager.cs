@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     private static GameManager _instance;
     private static int _nuggets = 0;
     private bool paused = false;
+    private float _movement = 1.0f;
 
     public GameObject pause_menu;
 
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour {
         if(SceneManager.GetActiveScene().name != "Game"){
             Pause();
         }
+        Debug.Log(_movement);
     }
 
     private void Pause(){
@@ -49,6 +51,11 @@ public class GameManager : MonoBehaviour {
     public void BackToMenu(){
         SceneManager.LoadScene("Game");
         Time.timeScale = 1.0f;
+    }
+
+    public float SetMovement(float movement){
+        _movement += movement ;
+        return _movement;
     }
 
     public void Quit(){
