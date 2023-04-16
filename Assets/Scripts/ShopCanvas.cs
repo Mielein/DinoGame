@@ -58,17 +58,31 @@ public class ShopCanvas : MonoBehaviour {
 
     public void Rollerskates(){
         SceneManager.LoadScene("BasicTest");
+        GameManager.Instance.SetTransport(1);
     }
     public void Skateboard(){
-        
+        if(GameManager.Instance.GetSkateboard()){
+            GameManager.Instance.SetTransport(2);
+            SceneManager.LoadScene("BasicTest");
+            
+        }
     }
     public void Scooter(){
-        
+        if(GameManager.Instance.scooter){
+            SceneManager.LoadScene("BasicTest");
+            GameManager.Instance.SetTransport(3);
+        }
     }
     public void Car(){
-        
+        if(GameManager.Instance.car){
+            SceneManager.LoadScene("BasicTest");
+            GameManager.Instance.SetTransport(4);
+        }
     }
     public void Plane(){
-        
+        if(GameManager.Instance.plane){
+            SceneManager.LoadScene("BasicTest");
+            GameManager.Instance.SetTransport(5);
+        }
     }
 }

@@ -79,6 +79,7 @@ public class Dino : MonoBehaviour
         time = 0.0f;
         timing += 0.2f;
         switch (status) {
+
             case 1:
                 Shrink();
                 break;
@@ -92,7 +93,9 @@ public class Dino : MonoBehaviour
                 srend.sprite = idle_high[(int) (frames % (idle_high.Count * 4)) / 4];
                 break;
         }
-        switch (transport) {
+        Debug.Log(GameManager.Instance.GetTransport());
+        int i = GameManager.Instance.GetTransport();
+        switch (i) {
             case 0:
                 sfeet.sprite = null;
                 sfeetbg.sprite = null;

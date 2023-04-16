@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     public GameObject carlock;
     public GameObject planelock;
 
+    public int transport_;
 
     public GameObject pause_menu;
 
@@ -44,12 +45,22 @@ public class GameManager : MonoBehaviour {
         if(SceneManager.GetActiveScene().name != "Game"){
             Pause();
         }
-
+        Debug.Log(transport_);
         NuggetCount();
+        
+    }
+
+    public void SetTransport(int trans){
+        transport_ = trans;
+        Debug.Log("Set" + transport_);
+    }
+    public int GetTransport(){
+        return transport_;
+        Debug.Log("Get" + transport_);
     }
 
     public void NuggetCount(){
-        if(_nuggets >= 100){
+        if(_nuggets >= 0){
             skateboard = true;
 
         }
@@ -63,6 +74,9 @@ public class GameManager : MonoBehaviour {
             plane = true;
         }
     }
+    public bool GetSkateboard(){
+        return skateboard;
+    }
 
     public void Unlock(){
         if(skateboard){
@@ -73,16 +87,9 @@ public class GameManager : MonoBehaviour {
             scootlock.SetActive(false);
             SetMovement(-0.2f);
         }
-        if(car){
-            carlock.SetActive(false);
             SetMovement(-0.2f);
         }
-
-        if(plane){
-            planelock.SetActive(false);
-            SetMovement(-0.2f);
-        }
-    }
+    
 
     private void Pause(){
         
