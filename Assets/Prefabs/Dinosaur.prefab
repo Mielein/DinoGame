@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 198182921
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c7ed47a51c84bd28b8edaaa9f35ef791, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,20 +108,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cf51b8d4a104a13efba63d6da3303645, type: 3}
   - {fileID: 21300000, guid: fb8d2514f1a59707db042bd326ee4817, type: 3}
   idle_low:
+  - {fileID: 21300000, guid: 1c5653ad2c8ed57719519aa7f7ed7504, type: 3}
   - {fileID: 21300000, guid: b99b61b5613edd242ba9c296bb8d1043, type: 3}
-  - {fileID: 21300000, guid: 1c5653ad2c8ed57719519aa7f7ed7504, type: 3}
   - {fileID: 21300000, guid: 9d0ad3134c54eb9afb8c98b97d953d56, type: 3}
-  - {fileID: 21300000, guid: 1c5653ad2c8ed57719519aa7f7ed7504, type: 3}
+  - {fileID: 21300000, guid: b99b61b5613edd242ba9c296bb8d1043, type: 3}
   idle_high:
-  - {fileID: 21300000, guid: b99b61b5613edd242ba9c296bb8d1043, type: 3}
-  - {fileID: 21300000, guid: 1c5653ad2c8ed57719519aa7f7ed7504, type: 3}
-  - {fileID: 21300000, guid: 9d0ad3134c54eb9afb8c98b97d953d56, type: 3}
-  - {fileID: 21300000, guid: 1c5653ad2c8ed57719519aa7f7ed7504, type: 3}
+  - {fileID: 21300000, guid: 3b9886ad03dc0d550ab5d5ba67e60002, type: 3}
+  - {fileID: 21300000, guid: 4de5bbebe7db1dd6fbd661c25d5c64f0, type: 3}
+  - {fileID: 21300000, guid: 7177f6b694d05bb8590f3541767f20d2, type: 3}
+  - {fileID: 21300000, guid: 4de5bbebe7db1dd6fbd661c25d5c64f0, type: 3}
   rolling:
-  - {fileID: 21300000, guid: 8fa4eed4d03f09192881c00e3a73032d, type: 3}
-  - {fileID: 21300000, guid: 79e16bde7b098abf88b44eb7836ea382, type: 3}
-  - {fileID: 21300000, guid: e070525753c07bac0a4a45394db90ac6, type: 3}
-  - {fileID: 21300000, guid: 79e16bde7b098abf88b44eb7836ea382, type: 3}
+  - {fileID: 21300000, guid: 93fb904999df486e0b40615b857eee38, type: 3}
+  - {fileID: 21300000, guid: b6077ca5f962e6b9682885e9272687a6, type: 3}
+  - {fileID: 21300000, guid: e730d5b04568de1ed9669fbb2e8eb321, type: 3}
+  - {fileID: 21300000, guid: b6077ca5f962e6b9682885e9272687a6, type: 3}
   skateboard:
   - {fileID: 21300000, guid: c6fc7066c6f1ae17b87b6fc080875ab7, type: 3}
   - {fileID: 21300000, guid: fb4a1832cdec1b20ead644bb677217be, type: 3}
@@ -133,12 +133,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d3936622a265a12508590699e43e0348, type: 3}
   - {fileID: 21300000, guid: 6b06e978c37853cd190f7347a8879865, type: 3}
   car:
-  - {fileID: 21300000, guid: d6c02af57998807a4b2e0cfc389a78e4, type: 3}
-  - {fileID: 21300000, guid: a5509010dd07ea2eebff7ba2a908f095, type: 3}
-  - {fileID: 21300000, guid: 43d75601d7fccd187b891041df1cf213, type: 3}
-  - {fileID: 21300000, guid: a5509010dd07ea2eebff7ba2a908f095, type: 3}
+  - {fileID: 21300000, guid: 4522beaabdcd2666f99d2d167a7a2891, type: 3}
+  - {fileID: 21300000, guid: 60ae8fdcc43aae5b19fc8c37f7910a02, type: 3}
+  - {fileID: 21300000, guid: df581a0e78877b09baa3b15cd4e13f92, type: 3}
+  - {fileID: 21300000, guid: 3e8f195c693d9cee6806912feb909a34, type: 3}
+  - {fileID: 21300000, guid: df581a0e78877b09baa3b15cd4e13f92, type: 3}
+  - {fileID: 21300000, guid: 60ae8fdcc43aae5b19fc8c37f7910a02, type: 3}
   car_2:
-  - {fileID: 21300000, guid: 136989a0837185d648ef4857069fbea3, type: 3}
+  - {fileID: 21300000, guid: 14fd88aefc24c7a9ebe659d64b346216, type: 3}
+  - {fileID: 21300000, guid: 7bf620a2879521acca5b59ff0402edfd, type: 3}
+  - {fileID: 21300000, guid: bd39896e9efc91eb391377ced30d582c, type: 3}
+  - {fileID: 21300000, guid: 8c7b5b90b008049a5bad6609ef5d98b9, type: 3}
+  - {fileID: 21300000, guid: bd39896e9efc91eb391377ced30d582c, type: 3}
+  - {fileID: 21300000, guid: 7bf620a2879521acca5b59ff0402edfd, type: 3}
   plane:
   - {fileID: 21300000, guid: acd3f44e550dfc05cb7615071f089955, type: 3}
   - {fileID: 21300000, guid: 5e645a8ccda66c6efbd915d1c6806548, type: 3}

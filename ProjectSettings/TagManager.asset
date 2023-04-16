@@ -47,15 +47,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Things
-    uniqueID: 1878648265
+  - name: Background
+    uniqueID: 677665561
+    locked: 0
+  - name: Items
+    uniqueID: 321478477
     locked: 0
   - name: Dino
-    uniqueID: 4185026969
-    locked: 0
-  - name: BG
-    uniqueID: 328632699
-    locked: 0
-  - name: New Layer 4
-    uniqueID: 2944374991
+    uniqueID: 198182921
     locked: 0

@@ -22,6 +22,7 @@ public class Dino : MonoBehaviour
     private SpriteRenderer sfeet;
     private SpriteRenderer sfeetbg;
     private float time;
+    private float timing;
     private int frames;
     public int transport;
     
@@ -43,14 +44,15 @@ public class Dino : MonoBehaviour
         Ohno();
         frames = 0;
         time = 0.0f;
+        timing = 0.0f;
         stage = 0;
         rbod = GetComponentInChildren<Rigidbody2D>();
         srend = GetComponent<SpriteRenderer>();
         sfeet = roller.GetComponent<SpriteRenderer>();
-        roller.transform.position = new Vector3(gameObject.transform.position.x - 0.4f, gameObject.transform.position.y - 1.0f, -1.0f);
+        roller.transform.position = new Vector3(gameObject.transform.position.x - 0.45f, gameObject.transform.position.y - 1.0f, -1.0f);
         roller.transform.localScale = gameObject.transform.localScale;
         sfeetbg = rollerbg.GetComponent<SpriteRenderer>();
-        rollerbg.transform.position = new Vector3(gameObject.transform.position.x - 0.4f, gameObject.transform.position.y - 1.0f, 1.0f);
+        rollerbg.transform.position = new Vector3(gameObject.transform.position.x - 0.45f, gameObject.transform.position.y - 1.0f, 1.0f);
         rollerbg.transform.localScale = gameObject.transform.localScale;
     }
 
@@ -75,18 +77,19 @@ public class Dino : MonoBehaviour
             return;
         }
         time = 0.0f;
+        timing += 0.2f;
         switch (status) {
             case 1:
                 Shrink();
                 break;
             case 2:
-                srend.sprite = idle_low[(int) (frames * 0.25f) % idle_low.Count];
+                srend.sprite = idle_low[(int) (frames % (idle_low.Count * 4)) / 4];
                 break;
             case -1:
                 Grow();
                 break;
             case -2:
-                srend.sprite = idle_high[(int) (frames * 0.25f) % idle_high.Count];
+                srend.sprite = idle_high[(int) (frames % (idle_high.Count * 4)) / 4];
                 break;
         }
         switch (transport) {
@@ -95,23 +98,23 @@ public class Dino : MonoBehaviour
                 sfeetbg.sprite = null;
                 break;
             case 1:
-                sfeet.sprite = rolling[(int) (frames * 0.5f) % rolling.Count];
+                sfeet.sprite = rolling[(int) (frames % (rolling.Count * 2)) / 2];
                 sfeetbg.sprite = null;
                 break;
             case 2:
-                sfeetbg.sprite = skateboard[(int) (frames * 0.5f) % skateboard.Count];
+                sfeetbg.sprite = skateboard[(int) (frames % (skateboard.Count * 2)) / 2];
                 sfeet.sprite = null;
                 break;
             case 3:
-                sfeetbg.sprite = scooter[(int) (frames * 0.5f) % scooter.Count];
+                sfeetbg.sprite = scooter[(int) (frames % (scooter.Count * 2)) / 2];
                 sfeet.sprite = null;
                 break;
             case 4:
-                sfeet.sprite = car_2[0];
-                sfeetbg.sprite = car[(int) (frames * 0.5f) % car.Count];
+                sfeet.sprite = car[(int) (frames % (car.Count * 2)) / 2];
+                sfeetbg.sprite = car_2[(int) (frames % (car_2.Count * 2)) / 2];
                 break;
             case 5:
-                sfeet.sprite = plane[(int) (frames * 0.5f) % plane.Count];
+                sfeet.sprite = plane[(int) (frames % (plane.Count * 2)) / 2];
                 sfeetbg.sprite = null;
                 break;
         }
