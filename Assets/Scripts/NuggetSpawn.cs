@@ -53,7 +53,7 @@ public class NuggetSpawn : MonoBehaviour
     {
         float currmov = GameManager.Instance.GetMovement();
         freq = start_frequency * currmov;
-        speed = currmov * 5.0f;
+        speed = currmov * 500.0f;
 
         int interval = (int) (UnityEngine.Time.time * start_frequency);
         if (!spawned && interval % start_frequency == 0) {
