@@ -15,6 +15,7 @@ TagManager:
   - Front
   - Middle
   - Back
+  - AudioSource
   layers:
   - Default
   - TransparentFX
