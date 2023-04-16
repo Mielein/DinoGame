@@ -46,22 +46,26 @@ public class Head : MonoBehaviour
         }
         else if (other.gameObject.tag == "Road") {
             hide = false;
-            // move sprite
+            Debug.Log("load road");
         }
         else if (other.gameObject.tag == "Front") {
             hide = false;
+            Debug.Log("load front");
             // move sprite
         }
         else if (other.gameObject.tag == "Middle") {
             hide = false;
+            Debug.Log("load middle");
             // move sprite
         }
         else if (other.gameObject.tag == "Back") {
             hide = false;
+            Debug.Log("load back");
             // move sprite
         }
-
         points.text = "Nuggies: " + count;
-        other.GetComponent<SpriteRenderer>().enabled = false;
+        if (hide) {
+            other.GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 }
