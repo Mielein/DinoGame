@@ -27,8 +27,10 @@ public class NuggetSpawn : MonoBehaviour
     public int set_prob;
     private float freq;
     private float speed;
-    private int frame;
+    private int frames;
     private float time;
+    private float timing;
+
 
     public List<Sprite> sprites;
 
@@ -41,8 +43,9 @@ public class NuggetSpawn : MonoBehaviour
         Rigidbody2D body = dino.GetComponent<Rigidbody2D>();
         Collider2D collider = dino.GetComponent<Collider2D>();
         player = dino.GetComponent <Dino> ();
-        frame = 0;
+        frames = 0;
         time = 0.0f;
+        timing = 0.0f;
         anim = false;
     }
 
@@ -101,15 +104,15 @@ public class NuggetSpawn : MonoBehaviour
             GameObject tmp_obs = Instantiate(obs, spawn, scary);
             if (gen_prob < set_prob) {
                 tmp_obs.tag = "obs-1";
-                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs1[(int) (frame * 0.5f) % obs1.Count];
+                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs1[0];
             }
             else if (gen_prob > (100 - set_prob)) {
                 tmp_obs.tag = "obs-2";
-                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs2_1[(int) (frame * 0.5f) % obs2_1.Count];
+                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs2_1[0];
             }
             else {
                 tmp_obs.tag = "obs-3";
-                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs3[(int) (frame * 0.5f) % obs3.Count];
+                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs3[0];
             }
             obss.Add(tmp_obs);
             spawned2 = true;
@@ -124,13 +127,13 @@ public class NuggetSpawn : MonoBehaviour
                 obss[i].transform.position += new Vector3 (-speed * UnityEngine.Time.deltaTime, 0.0f, 0.0f);
                 if (anim) {
                     if(obss[i].tag == "obs-1") {
-                    obss[i].GetComponent<SpriteRenderer>().sprite = obs1[(int) (frame * 0.5f) % obs1.Count];
+                    obss[i].GetComponent<SpriteRenderer>().sprite = obs1[(int) (frames % (obs1.Count * 3)) / 3];
                     }
                     else if(obss[i].tag == "obs-2") {
-                        obss[i].GetComponent<SpriteRenderer>().sprite = obs2_1[(int) (frame * 0.5f) % obs2_1.Count];
+                        obss[i].GetComponent<SpriteRenderer>().sprite = obs2_1[(int) (frames % (obs2_2.Count * 3)) / 3];
                     }
                     else if(obss[i].tag == "obs-3") {
-                        obss[i].GetComponent<SpriteRenderer>().sprite = obs3[(int) (frame * 0.5f) % obs3.Count];
+                        obss[i].GetComponent<SpriteRenderer>().sprite = obs3[(int) (frames % (obs3.Count * 3)) / 3];
                     }
                 }
             }
@@ -139,10 +142,11 @@ public class NuggetSpawn : MonoBehaviour
                 obss.Remove(obss[i]);
             }
         }
-        frame = (frame + 1) % 100;
+        frames = (frames + 1) % 100;
         if (anim) {
             anim = false;
             time = 0.0f;
+            timing += 0.5f;
         }
         
     }
