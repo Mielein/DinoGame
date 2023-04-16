@@ -14,6 +14,7 @@ public class NuggetSpawn : MonoBehaviour
     private Quaternion scary;
     private bool spawned;
     private bool spawned2;
+    private bool anim;
     public GameObject nuggie;
     public GameObject obs;
     public GameObject dino;
@@ -22,6 +23,7 @@ public class NuggetSpawn : MonoBehaviour
     public float lower_bound;
     public float out_of_bounds;
     public float start_frequency;
+    public float start_frequency2;
     public int set_prob;
     private float freq;
     private float speed;
@@ -41,6 +43,7 @@ public class NuggetSpawn : MonoBehaviour
         player = dino.GetComponent <Dino> ();
         frame = 0;
         time = 0.0f;
+        anim = false;
     }
 
     void Update()
@@ -66,7 +69,7 @@ public class NuggetSpawn : MonoBehaviour
                 tmp_nugget.GetComponent<SpriteRenderer>().sprite = (gen_prob % 2 == 0) ? sprites[4] : sprites[5];
                 tmp_nugget.transform.localScale = new Vector3(0.75f, 0.75f, 1.0f);
             }
-            if (gen_prob > (100 - set_prob)) {
+            else if (gen_prob > (100 - set_prob)) {
                 tmp_nugget.tag = "raw";
                 tmp_nugget.GetComponent<SpriteRenderer>().sprite = (gen_prob % 2 == 0) ? sprites[0] : sprites[1];
                 tmp_nugget.transform.localScale = new Vector3(1.25f, 1.25f, 1.0f);
@@ -91,45 +94,44 @@ public class NuggetSpawn : MonoBehaviour
             }
         }
         /// ---ä
-        time += UnityEngine.Time.deltaTime;
-        if (time < 0.05f) {
-            return;
-        }
-        frame = (frame + 1) % 100;
-        if (!spawned2 && interval % start_frequency == 0) {
+        if (!spawned2 && interval % start_frequency2 == 0) {
             Debug.Log("Spawn Obstacle");
             int gen_prob = (int)UnityEngine.Random.Range(0, 100);
             Vector3 spawn = new Vector3(0.0f, (int)UnityEngine.Random.Range(upper_bound, lower_bound), 0.0f);
             GameObject tmp_obs = Instantiate(obs, spawn, scary);
             if (gen_prob < set_prob) {
                 tmp_obs.tag = "obs-1";
-                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs3[0];
+                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs1[(int) (frame * 0.5f) % obs1.Count];
             }
-            if (gen_prob > (100 - set_prob)) {
+            else if (gen_prob > (100 - set_prob)) {
                 tmp_obs.tag = "obs-2";
-                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs2_1[0];
+                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs2_1[(int) (frame * 0.5f) % obs2_1.Count];
             }
             else {
                 tmp_obs.tag = "obs-3";
-                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs3[0];
+                tmp_obs.GetComponent<SpriteRenderer>().sprite = obs3[(int) (frame * 0.5f) % obs3.Count];
             }
             obss.Add(tmp_obs);
-            spawned = true;
+            spawned2 = true;
         }
-        else if (spawned2 && interval % start_frequency != 0) {
-            spawned = false;
+        else if (spawned2 && interval % start_frequency2 != 0) {
+            spawned2 = false;
         }
-        for (int i = 0; i < nuggies.Count; ++i) {
+        time += UnityEngine.Time.deltaTime;
+        anim = (time < 0.05f) ? false : true;
+        for (int i = 0; i < obss.Count; ++i) {
             if (obss[i].transform.position.x > out_of_bounds) {
                 obss[i].transform.position += new Vector3 (-speed * UnityEngine.Time.deltaTime, 0.0f, 0.0f);
-                if(obss[i].tag == "obs-1") {
+                if (anim) {
+                    if(obss[i].tag == "obs-1") {
                     obss[i].GetComponent<SpriteRenderer>().sprite = obs1[(int) (frame * 0.5f) % obs1.Count];
-                }
-                else if(obss[i].tag == "obs-2") {
-                    obss[i].GetComponent<SpriteRenderer>().sprite = obs2_1[(int) (frame * 0.5f) % obs2_1.Count];
-                }
-                else if(obss[i].tag == "obs-3") {
-                    obss[i].GetComponent<SpriteRenderer>().sprite = obs3[(int) (frame * 0.5f) % obs3.Count];
+                    }
+                    else if(obss[i].tag == "obs-2") {
+                        obss[i].GetComponent<SpriteRenderer>().sprite = obs2_1[(int) (frame * 0.5f) % obs2_1.Count];
+                    }
+                    else if(obss[i].tag == "obs-3") {
+                        obss[i].GetComponent<SpriteRenderer>().sprite = obs3[(int) (frame * 0.5f) % obs3.Count];
+                    }
                 }
             }
             else {
@@ -137,5 +139,11 @@ public class NuggetSpawn : MonoBehaviour
                 obss.Remove(obss[i]);
             }
         }
+        frame = (frame + 1) % 100;
+        if (anim) {
+            anim = false;
+            time = 0.0f;
+        }
+        
     }
 }
