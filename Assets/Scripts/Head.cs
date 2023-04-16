@@ -10,6 +10,17 @@ public class Head : MonoBehaviour
     private int multiplier;
     GameObject go;
     Dino player = null;    
+
+    public GameObject road;
+    public GameObject front;
+    public GameObject middle;
+    public GameObject back;
+    private Quaternion quat;
+
+    public GameObject roadspawn;
+    public GameObject frontspawn;
+    public GameObject middlespawn;
+    public GameObject backspawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,20 +57,29 @@ public class Head : MonoBehaviour
         }
         else if (other.gameObject.tag == "Road") {
             hide = false;
+            Instantiate(road);
+            Destroy(other);
             Debug.Log("load road");
         }
         else if (other.gameObject.tag == "Front") {
             hide = false;
+            GameObject tmp = Instantiate(front);
+            tmp.transform.position = frontspawn.transform.position/* new Vector3(frontspawn.transform.position.x + 60.0f, frontspawn.transform.position.y, frontspawn.transform.position.z) */;
+            //Destroy(other);
             Debug.Log("load front");
             // move sprite
         }
         else if (other.gameObject.tag == "Middle") {
             hide = false;
+            Instantiate(middle);
+            Destroy(other);
             Debug.Log("load middle");
             // move sprite
         }
         else if (other.gameObject.tag == "Back") {
             hide = false;
+            Instantiate(back);
+            Destroy(other);
             Debug.Log("load back");
             // move sprite
         }

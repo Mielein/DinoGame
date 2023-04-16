@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour {
 
-    public GameObject cam;
-    public float length;
     private float startpos;
     public float parallax_effect;
     public float speed = 0.01f;
@@ -15,7 +13,7 @@ public class Parallax : MonoBehaviour {
     }
     void FixedUpdate() {
         float tmp = (transform.position.x * (1 - parallax_effect));
-        float dist = (GameManager.Instance.SetMovement(speed) * parallax_effect);
+        float dist = (GameManager.Instance.SetMovement(speed) * parallax_effect * Time.deltaTime);
     
         transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
         }
