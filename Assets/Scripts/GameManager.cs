@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
     public GameObject carlock;
     public GameObject planelock;
 
-    public int transport_;
+    private static int transport_;
 
     public GameObject pause_menu;
 
@@ -60,17 +60,17 @@ public class GameManager : MonoBehaviour {
     }
 
     public void NuggetCount(){
-        if(_nuggets >= 0){
+        if(_nuggets >= 30){
             skateboard = true;
 
         }
-        if(_nuggets >= 200){
+        if(_nuggets >= 50){
             scooter = true;
         }
-        if(_nuggets >= 300){
+        if(_nuggets >= 75){
             car = true;
         }
-        if(_nuggets >= 400){
+        if(_nuggets >= 100){
             plane = true;
         }
     }
