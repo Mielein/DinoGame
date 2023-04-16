@@ -9,3 +9,7 @@ TODOs left:
 - add credits
 - publish on itch
 - build with tag on GH
+- remove dev shortcuts
+
+- add marvins things
+- proper obstacles (hitbox & co)
