@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update(){
-        Debug.Log(paused);
         if(SceneManager.GetActiveScene().name != "Game"){
             Pause();
         }
