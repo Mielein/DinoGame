@@ -51,21 +51,15 @@ public class NuggetSpawn : MonoBehaviour
 
     void Update()
     {
-        switch (player.transport) {
-            case 0:
-                freq = start_frequency;
-                speed = 5.0f;
-                break;
-            case 1:
-                freq = start_frequency * 1.5f;
-                speed = 5.0f * 1.25f;
-                break;
-        }
+        float currmov = GameManager.Instance.GetMovement();
+        freq = start_frequency * currmov;
+        speed = currmov * 5.0f;
+
         int interval = (int) (UnityEngine.Time.time * start_frequency);
         if (!spawned && interval % start_frequency == 0) {
             Debug.Log("Spawn");
             int gen_prob = (int)UnityEngine.Random.Range(0, 100);
-            Vector3 spawn = new Vector3(0.0f, (int)UnityEngine.Random.Range(upper_bound, lower_bound), 0.0f);
+            Vector3 spawn = new Vector3(12.0f, (int)UnityEngine.Random.Range(upper_bound, lower_bound), 0.0f);
             GameObject tmp_nugget = Instantiate(nuggie, spawn, scary);
             if (gen_prob < set_prob) {
                 tmp_nugget.tag = "bad";
@@ -89,7 +83,7 @@ public class NuggetSpawn : MonoBehaviour
         }
         for (int i = 0; i < nuggies.Count; ++i) {
             if (nuggies[i].transform.position.x > out_of_bounds) {
-                nuggies[i].transform.position += new Vector3 (-speed * UnityEngine.Time.deltaTime, 0.0f, 0.0f);
+                nuggies[i].transform.position += new Vector3 (speed * UnityEngine.Time.deltaTime, 0.0f, 0.0f);
             }
             else {
                 Destroy(nuggies[i]);
@@ -100,19 +94,22 @@ public class NuggetSpawn : MonoBehaviour
         if (!spawned2 && interval % start_frequency2 == 0) {
             Debug.Log("Spawn Obstacle");
             int gen_prob = (int)UnityEngine.Random.Range(0, 100);
-            Vector3 spawn = new Vector3(0.0f, (int)UnityEngine.Random.Range(upper_bound, lower_bound), 0.0f);
+            Vector3 spawn = new Vector3(12.0f, (int)UnityEngine.Random.Range(upper_bound, lower_bound), 0.0f);
             GameObject tmp_obs = Instantiate(obs, spawn, scary);
             if (gen_prob < set_prob) {
                 tmp_obs.tag = "obs-1";
                 tmp_obs.GetComponent<SpriteRenderer>().sprite = obs1[0];
+                tmp_obs.transform.localScale = new Vector3(1.5f, 1.5f, 1.0f);
             }
             else if (gen_prob > (100 - set_prob)) {
                 tmp_obs.tag = "obs-2";
                 tmp_obs.GetComponent<SpriteRenderer>().sprite = obs2_1[0];
+                tmp_obs.transform.localScale = new Vector3(2.0f, 2.0f, 1.0f);
             }
             else {
                 tmp_obs.tag = "obs-3";
                 tmp_obs.GetComponent<SpriteRenderer>().sprite = obs3[0];
+                tmp_obs.transform.localScale = new Vector3(2.5f, 2.5f, 1.0f);
             }
             obss.Add(tmp_obs);
             spawned2 = true;
@@ -124,7 +121,7 @@ public class NuggetSpawn : MonoBehaviour
         anim = (time < 0.05f) ? false : true;
         for (int i = 0; i < obss.Count; ++i) {
             if (obss[i].transform.position.x > out_of_bounds) {
-                obss[i].transform.position += new Vector3 (-speed * UnityEngine.Time.deltaTime, 0.0f, 0.0f);
+                obss[i].transform.position += new Vector3 (speed * UnityEngine.Time.deltaTime, 0.0f, 0.0f);
                 if (anim) {
                     if(obss[i].tag == "obs-1") {
                     obss[i].GetComponent<SpriteRenderer>().sprite = obs1[(int) (frames % (obs1.Count * 3)) / 3];

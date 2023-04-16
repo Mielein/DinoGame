@@ -23,25 +23,45 @@ public class Head : MonoBehaviour
         GameManager.Instance.Nuggets(count);
     }
     void OnTriggerEnter2D(Collider2D other) {
-        switch (player.transport) {
-            case 0:
-                multiplier = 1;
-                break;
-            case 1:
-                multiplier = 2;
-                break;
-        }
+        float movement = GameManager.Instance.GetMovement();
         Debug.Log("idk");
+        bool hide = true;
         if (other.gameObject.tag == "good") {
-            count += 3 * multiplier;
+            count += (int) (3.0f * movement);
         }
         else if (other.gameObject.tag == "raw") {
-            count += 1 * multiplier;
+            count += (int) (1.0f * movement);
         }
         else if (other.gameObject.tag == "bad") {
-            count += 5 * multiplier;
+            count += (int) (5.0f * movement);
         }
-        points.text = "Points: " + count;
+        if (other.gameObject.tag == "obs-1") {
+            count -= (int) (1.0f * movement);
+        }
+        else if (other.gameObject.tag == "obs-2") {
+            count += (int) (2.0f * multiplier);
+        }
+        else if (other.gameObject.tag == "obs-3") {
+            count += (int) (3.0f * multiplier);
+        }
+        else if (other.gameObject.tag == "Road") {
+            hide = false;
+            // move sprite
+        }
+        else if (other.gameObject.tag == "Front") {
+            hide = false;
+            // move sprite
+        }
+        else if (other.gameObject.tag == "Middle") {
+            hide = false;
+            // move sprite
+        }
+        else if (other.gameObject.tag == "Back") {
+            hide = false;
+            // move sprite
+        }
+
+        points.text = "Nuggies: " + count;
         other.GetComponent<SpriteRenderer>().enabled = false;
     }
 }
