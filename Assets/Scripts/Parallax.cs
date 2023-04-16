@@ -22,6 +22,6 @@ public class Parallax : MonoBehaviour {
 /*          Debug.Log("startpos - length " + (startpos - length));
          Debug.Log("tmp "+ tmp); */
 
-    }
+
 }
 
