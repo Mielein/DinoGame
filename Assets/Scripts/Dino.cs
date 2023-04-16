@@ -9,17 +9,24 @@ public class Dino : MonoBehaviour
     public List<Sprite> idle_low;
     public List<Sprite> idle_high;
     public List<Sprite> rolling;
+    public List<Sprite> skateboard;
+    public List<Sprite> scooter;
+    public List<Sprite> car;
+    public List<Sprite> car_2;
+    public List<Sprite> plane;
 
     private int stage;
     private int status; 
     private Rigidbody2D rbod;
     private SpriteRenderer srend;
     private SpriteRenderer sfeet;
+    private SpriteRenderer sfeetbg;
     private float time;
     private int frames;
     public int transport;
     
     public GameObject roller;
+    public GameObject rollerbg;
     private List<Vector3> hardcode_hitbox = new List<Vector3>();
 
     void Ohno() {
@@ -37,12 +44,14 @@ public class Dino : MonoBehaviour
         frames = 0;
         time = 0.0f;
         stage = 0;
-
         rbod = GetComponentInChildren<Rigidbody2D>();
         srend = GetComponent<SpriteRenderer>();
         sfeet = roller.GetComponent<SpriteRenderer>();
-        roller.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1.0f);
+        roller.transform.position = new Vector3(gameObject.transform.position.x - 0.4f, gameObject.transform.position.y - 1.0f, -1.0f);
         roller.transform.localScale = gameObject.transform.localScale;
+        sfeetbg = rollerbg.GetComponent<SpriteRenderer>();
+        rollerbg.transform.position = new Vector3(gameObject.transform.position.x - 0.4f, gameObject.transform.position.y - 1.0f, 1.0f);
+        rollerbg.transform.localScale = gameObject.transform.localScale;
     }
 
     // Update is called once per frame
@@ -53,6 +62,12 @@ public class Dino : MonoBehaviour
         }
         else if(Input.GetKey(KeyCode.W)) {
             status = -1;
+        }
+        else if(Input.GetKey(KeyCode.A)) {
+            transport = (transport - 1) % 6;
+        }
+        else if(Input.GetKey(KeyCode.D)) {
+            transport = (transport + 1) % 6;
         }
 
         time += UnityEngine.Time.deltaTime;
@@ -65,21 +80,39 @@ public class Dino : MonoBehaviour
                 Shrink();
                 break;
             case 2:
-                srend.sprite = idle_low[(int) (frames * 0.5f) % idle_low.Count];
+                srend.sprite = idle_low[(int) (frames * 0.25f) % idle_low.Count];
                 break;
             case -1:
                 Grow();
                 break;
             case -2:
-                srend.sprite = idle_high[(int) (frames * 0.5f) % idle_high.Count];
+                srend.sprite = idle_high[(int) (frames * 0.25f) % idle_high.Count];
                 break;
         }
         switch (transport) {
-            case 1:
-                sfeet.sprite = rolling[(int) (frames * 0.5f) % rolling.Count];
-                break;
             case 0:
                 sfeet.sprite = null;
+                sfeetbg.sprite = null;
+                break;
+            case 1:
+                sfeet.sprite = rolling[(int) (frames * 0.5f) % rolling.Count];
+                sfeetbg.sprite = null;
+                break;
+            case 2:
+                sfeetbg.sprite = skateboard[(int) (frames * 0.5f) % skateboard.Count];
+                sfeet.sprite = null;
+                break;
+            case 3:
+                sfeetbg.sprite = scooter[(int) (frames * 0.5f) % scooter.Count];
+                sfeet.sprite = null;
+                break;
+            case 4:
+                sfeet.sprite = car_2[0];
+                sfeetbg.sprite = car[(int) (frames * 0.5f) % car.Count];
+                break;
+            case 5:
+                sfeet.sprite = plane[(int) (frames * 0.5f) % plane.Count];
+                sfeetbg.sprite = null;
                 break;
         }
         frames = (frames + 1) % 100;
