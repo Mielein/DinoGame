@@ -52,10 +52,10 @@ public class Head : MonoBehaviour
             count -= (int) (1.0f * multiplier);
         }
         else if (other.gameObject.tag == "obs-2") {
-            count += (int) (2.0f * multiplier);
+            count -= (int) (2.0f * multiplier);
         }
         else if (other.gameObject.tag == "obs-3") {
-            count += (int) (3.0f * multiplier);
+            count -= (int) (3.0f * multiplier);
         }
         else if (other.gameObject.tag == "Road") {
             hide = false;
