@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 47921435}
   - component: {fileID: 47921436}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roadmain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 89031063}
   - component: {fileID: 89031064}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Middle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117299774}
   - component: {fileID: 117299775}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fleshroadmain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 222112701}
   - component: {fileID: 222112702}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dirtroadtransition2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 236683491}
   - component: {fileID: 236683492}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dirtroadmain_ (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,13 +655,14 @@ GameObject:
   m_Component:
   - component: {fileID: 335603182}
   - component: {fileID: 335603183}
-  m_Layer: 0
+  - component: {fileID: 335603184}
+  m_Layer: 3
   m_Name: Back
-  m_TagString: Untagged
+  m_TagString: Back
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &335603182
 Transform:
   m_ObjectHideFlags: 0
@@ -696,6 +697,32 @@ MonoBehaviour:
   length: 0
   parallax_effect: 0.7
   speed: -0.01
+--- !u!61 &335603184
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335603181}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -36.4, y: -16.92}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.15}
+  m_EdgeRadius: 0
 --- !u!1 &579856248
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,13 +942,14 @@ GameObject:
   m_Component:
   - component: {fileID: 654815012}
   - component: {fileID: 654815013}
-  m_Layer: 0
+  - component: {fileID: 654815014}
+  m_Layer: 3
   m_Name: Middle
-  m_TagString: Untagged
+  m_TagString: Middle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &654815012
 Transform:
   m_ObjectHideFlags: 0
@@ -956,6 +984,32 @@ MonoBehaviour:
   length: 0
   parallax_effect: 0.5
   speed: -0.01
+--- !u!61 &654815014
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654815011}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -184.29, y: -84.7}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.94, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &675886868
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +1020,7 @@ GameObject:
   m_Component:
   - component: {fileID: 675886869}
   - component: {fileID: 675886870}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,7 +1161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 761441672}
   - component: {fileID: 761441673}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dirtroadmain_ (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1253,7 +1307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 798592137}
   - component: {fileID: 798592138}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Roadmain (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1337,7 +1391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 833735398}
   - component: {fileID: 833735399}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1420,9 +1474,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 877282687}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1456,7 +1510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 894944142}
   - component: {fileID: 894944143}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fleshroadmain (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1540,7 +1594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1082302803}
   - component: {fileID: 1082302804}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Middle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1624,7 +1678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1168003296}
   - component: {fileID: 1168003297}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Back (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1709,9 +1763,10 @@ GameObject:
   - component: {fileID: 1203032932}
   - component: {fileID: 1203032933}
   - component: {fileID: 1203032934}
-  m_Layer: 0
+  - component: {fileID: 1203032935}
+  m_Layer: 3
   m_Name: Road
-  m_TagString: Untagged
+  m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1724,7 +1779,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203032931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -462.9, y: -256.9, z: 0}
+  m_LocalPosition: {x: -463.5, y: -256.9, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1770,7 +1825,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 10.256397, y: 0}
+  m_Offset: {x: 10.05, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1783,6 +1838,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19242, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1203032935
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203032931}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 2
 --- !u!1 &1243506074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,7 +1978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1494978655}
   - component: {fileID: 1494978656}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Back (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2070,7 +2146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1523744695}
   - component: {fileID: 1523744696}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2255,13 +2331,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1615384325}
   - component: {fileID: 1615384326}
-  m_Layer: 0
+  - component: {fileID: 1615384327}
+  m_Layer: 3
   m_Name: Front
-  m_TagString: Untagged
+  m_TagString: Front
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1615384325
 Transform:
   m_ObjectHideFlags: 0
@@ -2296,6 +2373,32 @@ MonoBehaviour:
   length: 0
   parallax_effect: 0.3
   speed: -0.01
+--- !u!61 &1615384327
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615384324}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -183.36, y: -84.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1640305766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,7 +2409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640305767}
   - component: {fileID: 1640305768}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fleshroadtransition2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2390,7 +2493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1725927991}
   - component: {fileID: 1725927992}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dirtroadtransition2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2658,7 +2761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2016174147}
   - component: {fileID: 2016174148}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2742,7 +2845,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2048113046}
   - component: {fileID: 2048113047}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fleshroadtransition2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2826,7 +2929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2135649911}
   - component: {fileID: 2135649912}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -19,7 +19,15 @@ public class Parallax : MonoBehaviour {
     
         transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
 
-    
+        void OnTriggerExit2D(Collider2D col){
+            Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+            if(col.gameObject.name == "Dinosaur"){
+                transform.position = new Vector3(startpos, transform.position.y, transform.position.z);
+            }
+            
+        }
+/*          Debug.Log("startpos - length " + (startpos - length));
+         Debug.Log("tmp "+ tmp); */
 
     }
 }

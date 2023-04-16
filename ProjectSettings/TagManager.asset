@@ -10,6 +10,11 @@ TagManager:
   - obs-1
   - obs-2
   - obs-3
+  - Background
+  - Road
+  - Front
+  - Middle
+  - Back
   layers:
   - Default
   - TransparentFX
