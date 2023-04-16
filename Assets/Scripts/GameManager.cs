@@ -76,8 +76,8 @@ public class GameManager : MonoBehaviour {
         if(car){
             carlock.SetActive(false);
             SetMovement(-0.2f);
-        }anager.cs
-Automatic merge failed; fix conflicts and 
+        }
+
         if(plane){
             planelock.SetActive(false);
             SetMovement(-0.2f);
