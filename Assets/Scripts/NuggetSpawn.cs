@@ -30,6 +30,9 @@ public class NuggetSpawn : MonoBehaviour
     private int frames;
     private float time;
     private float timing;
+    // tmp
+    public TMP_Text nugspeed;
+    public TMP_Text movspeed;
 
 
     public List<Sprite> sprites;
@@ -54,6 +57,8 @@ public class NuggetSpawn : MonoBehaviour
         float currmov = GameManager.Instance.GetMovement();
         freq = start_frequency * currmov;
         speed = currmov * 500.0f;
+        nugspeed.text = "nugsp: " + speed + "";
+        movspeed.text = "movsp: " + currmov + "";
 
         int interval = (int) (UnityEngine.Time.time * start_frequency);
         if (!spawned && interval % start_frequency == 0) {

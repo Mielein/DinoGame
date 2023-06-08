@@ -35,7 +35,7 @@ public class Throat : MonoBehaviour
         else if (other.gameObject.tag == "obs-3") {
             count -= 3 * multiplier;
         }
-        points.text = "Points: " + count;
+        points.text = "Points: " + count + " " + multiplier;
         //other.GetComponent<SpriteRenderer>().enabled = false;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour {
 
@@ -26,6 +27,10 @@ public class GameManager : MonoBehaviour {
 
     public GameObject pause_menu;
 
+    //tmp
+    public TMP_Text movsp;
+    public TMP_Text currsp;
+
 
     public static GameManager Instance{
         get{
@@ -35,12 +40,18 @@ public class GameManager : MonoBehaviour {
             return _instance;
              
         }
+    
     }
     private void Awake(){
         _instance = this;
     }
+    void Start() {
+        _movement = -3400.0f;
+    }
 
     void Update(){
+        movsp.text = "gmmsp: " + _movement;
+        currsp.text = "gmcsp:" + currmov;
         
         if(SceneManager.GetActiveScene().name != "Game"){
             Pause();
