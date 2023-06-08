@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour {
              
         }
     }
+    // welp
+    void Start() {
+        _movement = -3400.0f;
+    }
+
     private void Awake(){
         _instance = this;
     }
